@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+
+import Theme from './Core/theme/index';
+import Styled, { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './Core/theme/GlobalStyles';
+
+import Navbar from './Components/Navbar';
+
+import HeroSection from './Components/HeroSection'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyles/>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<HeroSection/>}/>
+        </Routes>
+        <Placeholder>
+          <h3>Placeholder</h3>
+        </Placeholder>
+      </ThemeProvider> 
     </>
   )
 }
 
 export default App
+
+
+const Placeholder = Styled.div`
+position: relative;
+  width: 100%;
+  height: 320px;
+  color: ${(props) => props.theme.colors.brandColor};
+  opacity: 0.2;
+  background: #ffffff;
+  h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: 800;
+    transform: translate(-50%, -50%);
+  }
+`
