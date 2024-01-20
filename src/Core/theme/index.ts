@@ -12,11 +12,16 @@ const Theme: DefaultTheme = {
     maxWidth: 1140,
     colors: {
         neutralColor: '#FFFFFF',
-        brandColor: '#120A48',
+        brandColor: '#0a081c',
+        // brandColor: '#120A48',
         lightBrandColor: '#03B3FE',
         accentColor1: '#3BB642',
         accentColor2: '#FF4D50',
         blackTextColor: '#86858B',
+
+        brand: '#03B3FE',
+        textBlack: '#0e0d18f2',
+        textSoftBlack: '#717275',
     }
 }
  

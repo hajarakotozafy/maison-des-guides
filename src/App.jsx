@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Theme from './Core/theme/index';
@@ -5,16 +6,22 @@ import Styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './Core/theme/GlobalStyles';
 
 import Navbar from './Components/Navbar';
+import TranslationPopup from './Components/TranslationPopup';
 
 import HeroSection from './Components/HeroSection'
 
 function App() {
 
+  const [changeLng, setChangeLng] = useState(false);
   return (
+
     <>
       <ThemeProvider theme={Theme}>
         <GlobalStyles/>
-        <Navbar/>
+        <Navbar changeLng={changeLng} setChangeLng={setChangeLng}/>
+        {
+          changeLng && <TranslationPopup changeLng={changeLng} setChangeLng={setChangeLng}/>
+        }
         <Routes>
           <Route path="/" element={<HeroSection/>}/>
         </Routes>

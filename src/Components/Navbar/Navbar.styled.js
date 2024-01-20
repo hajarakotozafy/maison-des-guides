@@ -10,7 +10,10 @@ export const NavbarContainer = Styled.div`
     align-items: center;
     justify-content: center;
     @media screen and (min-width: 769px){
-        background: rgba(68, 102, 137, 0.8);
+        // background: rgba(68, 102, 137, 0.8);
+        background: transparent;
+        // background: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     }
 `
 
@@ -45,8 +48,8 @@ export const NavbarInner = Styled.div`
         transition: 0.4s ease;
         gap: 16px;
         a{
-            font-size: 18px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 400;
             color: ${(props) => props.theme.colors.brandColor};
             text-decoration: none;
             border-bottom: 1px solid ${(props) => props.theme.colors.brandColor};
@@ -55,6 +58,7 @@ export const NavbarInner = Styled.div`
         &.active{
             left: 0;
         }
+        
     }
     @media screen and (min-width: 769px){
         flex: 1;
@@ -70,7 +74,28 @@ export const NavbarInner = Styled.div`
                 border: none;
                 padding: 0;
                 color: #ffffff;
+                // color: #717275;
             }
         }
+    }
+`
+
+export const LanguageBtn = Styled.div`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 20px;
+    // background: rgba(113, 114, 117, 0.4);
+    // border: 1px solid #717275;
+    background: rgba(255, 255, 255, 0.95);
+    span{
+        color: ${(props) => props.theme.colors.textBlack};
+        font-weight: 600;
+        font-size: 14px;
+    }
+    svg{
+        width: 24px;
     }
 `

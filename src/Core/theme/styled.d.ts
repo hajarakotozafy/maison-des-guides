@@ -16,6 +16,11 @@ declare module 'styled-components'{
             accentColor1: string,
             accentColor2: string,
             blackTextColor: string,
+
+            brand: string,
+            textBlack: string,
+            textSoftBlack: string,
+            
         }
     }
 }
